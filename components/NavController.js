@@ -3,12 +3,16 @@ import { View } from "react-native";
 import { useIsLoggedIn } from "../AuthContext";
 import AuthNavigation from "../navigation/AuthNavigation";
 import TabNavigation from "../navigation/TabNavigation";
+import { NavigationContainer } from "@react-navigation/native";
 
 export default () => {
-  const isLoggedIn = useIsLoggedIn();
+  // const isLoggedIn = useIsLoggedIn();
+  const isLoggedIn = true;
   return (
     <View style={{ flex: "1" }}>
-      {isLoggedIn ? <TabNavigation /> : <AuthNavigation />}
+      <NavigationContainer>
+        {isLoggedIn ? <TabNavigation /> : <AuthNavigation />}
+      </NavigationContainer>
     </View>
   );
 };

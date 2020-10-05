@@ -1,4 +1,5 @@
 import React from "react";
+import { View, Text } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Home from "../screens/Home";
 import Search from "../screens/Search";
@@ -13,32 +14,18 @@ export default () => (
     <Tab.Screen name="Search" component={Search} />
     <Tab.Screen
       name="Add"
-      listeners={{
+      component={View}
+      listeners={({ navigation }) => ({
         tabPress: (e) => {
           // Prevent default action
           e.preventDefault();
-          console.log("Add");
+
+          // Do something with the `navigation` object
+          navigation.navigate("PhotoNavigation");
         },
-      }}
+      })}
     />
     <Tab.Screen name="Notifications" component={Notifications} />
     <Tab.Screen name="Profile" component={Profile} />
   </Tab.Navigator>
 );
-
-// const TabNavigation = createBottomTabNavigator({
-//   Home,
-//   Search,
-//   Add: {
-//     screen: View,
-//     navigationOptions: {
-//       tabBarOnPress: () => {
-//         console.log("Add");
-//       },
-//     },
-//   },
-//   Notifications,
-//   Profile,
-// });
-
-// export default createAppContainer(TabNavigation);
