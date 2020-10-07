@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { TouchableOpacity } from "react-native";
 
 const View = styled.View`
   justify-content: center;
@@ -11,8 +12,8 @@ const Text = styled.Text``;
 
 export default ({ navigation }) => (
   <View>
-    <ToucahableOpacity onPress={() => navigation.navigate("UploadPhoto")}>
+    <TouchableOpacity onPress={() => navigation.navigate("UploadPhoto")}>
       <Text>Take</Text>
-    </ToucahableOpacity>
+    </TouchableOpacity>
   </View>
 );

@@ -1,7 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 import AuthNavigation from "../navigation/AuthNavigation";
-import TabNavigation from "../navigation/TabNavigation";
+import MainNavigation from "../navigation/MainNavigation";
 import { NavigationContainer } from "@react-navigation/native";
 
 export default () => {
@@ -10,7 +10,7 @@ export default () => {
   return (
     <View style={{ flex: "1" }}>
       <NavigationContainer>
-        {isLoggedIn ? <TabNavigation /> : <AuthNavigation />}
+        {isLoggedIn ? <MainNavigation /> : <AuthNavigation />}
       </NavigationContainer>
     </View>
   );

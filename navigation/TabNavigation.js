@@ -6,7 +6,6 @@ import Home from "../screens/Home";
 import Search from "../screens/Search";
 import Notifications from "../screens/Notifications";
 import Profile from "../screens/Profile";
-import PhotoNavigation from "../navigation/PhotoNavigation";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -37,14 +36,6 @@ function SearchStack() {
   );
 }
 
-function AddStack() {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen name="Add" component={View} />
-    </Stack.Navigator>
-  );
-}
-
 function NotificationsStack() {
   return (
     <Stack.Navigator>
@@ -67,16 +58,16 @@ export default () => (
     <Tab.Screen name="Search" component={SearchStack} />
     <Tab.Screen
       name="Add"
-      component={AddStack}
-      // listeners={({ navigation, route }) => ({
-      //   tabPress: (e) => {
-      //     // Prevent default action
-      //     e.preventDefault();
+      component={View}
+      listeners={({ navigation, route }) => ({
+        tabPress: (e) => {
+          // Prevent default action
+          e.preventDefault();
 
-      //     // Do something with the `navigation` object
-      //     navigation.navigate("PhotoNavigation");
-      //   },
-      // })}
+          // Do something with the `navigation` object
+          navigation.navigate("PhotoNavigation");
+        },
+      })}
     />
     <Tab.Screen name="Notifications" component={NotificationsStack} />
     <Tab.Screen name="Profile" component={ProfileStack} />

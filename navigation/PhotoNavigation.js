@@ -1,17 +1,13 @@
 import React from "react";
-import { View } from "react-native";
-import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-import { NavigationContainer } from "@react-navigation/native";
+import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import SelectPhoto from "../screens/Photo/SelectPhoto";
 import TakePhoto from "../screens/Photo/TakePhoto";
 
-const Tab = createMaterialTopTabNavigator();
+const Tab = createMaterialBottomTabNavigator();
 
 export default () => (
-  <NavigationContainer>
-    <Tab.Navigator position="bottom">
-      <Tab.Screen name="SelectPhoto" component={SelectPhoto} />
-      <Tab.Screen name="TakePhoto" component={TakePhoto} />
-    </Tab.Navigator>
-  </NavigationContainer>
+  <Tab.Navigator>
+    <Tab.Screen name="SelectPhoto" component={SelectPhoto} />
+    <Tab.Screen name="TakePhoto" component={TakePhoto} />
+  </Tab.Navigator>
 );
